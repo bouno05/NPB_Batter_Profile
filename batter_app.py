@@ -3503,7 +3503,7 @@ data={'2024': {'Top League': {'Yomiuri Giants': {'モンテス (Coco Montes)': [
     '大田 泰示 (Taishi Ohta)': ['https://drive.google.com/uc?id=13PidrFs7QpwIZRcMVwBauQ0gHOfLy6Q4'],
     '西川 遥輝 (Haruki Nishikawa)': ['https://drive.google.com/uc?id=1IazupMEqZwEe1Kn2XhOs71DZDIct1M5-']}}}}
 #タイトル
-st.title("NPB Batter Profiler - β ver.")
+st.title("NPB Batting Profiler - β ver.")
 st.write("Developed by bouno05")
 
 # 年度を選択
