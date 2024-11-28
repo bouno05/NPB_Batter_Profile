@@ -7024,7 +7024,7 @@ button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
 if button:
-    #try:
+    try:
       urls = team_players[selected_player]
       response = requests.get(urls[0])
       image1 = Image.open(BytesIO(response.content))
@@ -7034,8 +7034,8 @@ if button:
       image2 = Image.open(BytesIO(response.content))
       with tab2:
           st.image(image2, use_column_width=True)
-    #except:
-        #pass
+    except:
+      pass
 
 #注意事項
 with st.container(height=250):
