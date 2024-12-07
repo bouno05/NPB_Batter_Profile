@@ -7017,25 +7017,26 @@ if selected_year:
                 team_players = teams[selected_team]
             selected_player = st.selectbox("Select or Input a Player", list(team_players.keys()),index = None,
     placeholder="Input a player...")
-
+simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
 #ボタン
 button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
 #タブ
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
 if button:
-    try:
-      urls = team_players[selected_player]
-      response = requests.get(urls[0])
-      image1 = Image.open(BytesIO(response.content))
-      with tab1:
-          st.image(image1, use_column_width=True)
-      response = requests.get(urls[1])
-      image2 = Image.open(BytesIO(response.content))
-      with tab2:
-          st.image(image2, use_column_width=True)
-    except:
-      pass
+  #プロフィール画像出力
+  try:
+    urls = team_players[selected_player]
+    response = requests.get(urls[0])
+    image1 = Image.open(BytesIO(response.content))
+    with tab1:
+        st.image(image1, use_column_width=True)
+    response = requests.get(urls[1])
+    image2 = Image.open(BytesIO(response.content))
+    with tab2:
+        st.image(image2, use_column_width=True)
+  except:
+    pass
 
 #注意事項
 with st.container(height=250):
