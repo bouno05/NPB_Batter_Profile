@@ -73,7 +73,7 @@ if button:
     else:
       pass
   #類似選手の表示
-  cond=simi_df[simi_df["Year"]==selected_year]
+  cond=simi_df[simi_df["Year"]==int(selected_year)]
   cond=cond[cond["Player"]==name_j]
   if len(cond)==1:
     st.write("類似選手(類似スコア)")
