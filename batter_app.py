@@ -58,25 +58,27 @@ if selected_year:
             selected_player = st.selectbox("Select or Input a Player", name_list,index = None,
     placeholder="Input a player...")
 #選択された選手ID、選手和名取得
-for i in range(len(team_players)):
-  name_kari=team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )"
-  if selected_player==name_kari:
-    name_id=i
-    name_j=team_players[i]['nameJ']
-    break
-  else:
-    pass
+if selected_player:
+  for i in range(len(team_players)):
+    name_kari=team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )"
+    if selected_player==name_kari:
+      name_id=i
+      name_j=team_players[i]['nameJ']
+      break
+    else:
+      pass
 #ボタン
 button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
 #類似選手の表示
-simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
-cond=simi_df[simi_df["Year"]==int(selected_year)]
-cond=cond[cond["Player"]==name_j]
-if len(cond)==1:
-  sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "
-  st.text(sim_text)
-else:
-  pass
+if selected_player:
+  simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
+  cond=simi_df[simi_df["Year"]==int(selected_year)]
+  cond=cond[cond["Player"]==name_j]
+  if len(cond)==1:
+    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "
+    st.text(sim_text)
+  else:
+    pass
 #タブ
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
