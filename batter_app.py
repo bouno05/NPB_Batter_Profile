@@ -75,10 +75,10 @@ if selected_player:
   cond=simi_df[simi_df["Year"]==int(selected_year)]
   cond=cond[cond["Player"]==name_j]
   if len(cond)==1:
-    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "
-    st.text(sim_text)
+    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "+", "+cond.iloc[0,7]+" ( "+str(round(cond.iloc[0,7]))+" ) "+", "+cond.iloc[0,9]+" ( "+str(round(cond.iloc[0,10]))+" ) "
+    st.text(sim_text,size=5)
   else:
-    pass
+    st.text("類似選手 ( 類似スコア )：No Data")
 #タブ
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
