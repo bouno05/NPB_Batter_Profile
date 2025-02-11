@@ -67,8 +67,6 @@ if selected_player:
       break
     else:
       pass
-#ボタン
-button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
 #類似選手の表示
 if selected_player:
   simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
@@ -79,6 +77,8 @@ if selected_player:
     st.text(sim_text)
   else:
     st.text("類似選手 ( 類似スコア )：No Data")
+#ボタン
+button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
 #タブ
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
