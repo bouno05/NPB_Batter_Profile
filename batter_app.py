@@ -72,14 +72,6 @@ if button:
       break
     else:
       pass
-  #類似選手の表示
-  cond=simi_df[simi_df["Year"]==int(selected_year)]
-  cond=cond[cond["Player"]==name_j]
-  if len(cond)==1:
-    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(cond.iloc[0,6])+" ) "
-    st.text(sim_text)
-  else:
-    pass
   #プロフィール画像出力
   try:
     urls = team_players[name_id]['ids']
@@ -93,7 +85,14 @@ if button:
         st.image(image2, use_container_width=True)
   except:
     pass
-
+  #類似選手の表示
+  cond=simi_df[simi_df["Year"]==int(selected_year)]
+  cond=cond[cond["Player"]==name_j]
+  if len(cond)==1:
+    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6],0))+" ) "
+    st.text(sim_text)
+  else:
+    pass
 #注意事項
 with st.container(height=250):
      st.markdown(":gray[・「Generate」ボタンをクリックすると打者プロフィールが生成されます。]")
