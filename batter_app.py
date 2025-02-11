@@ -21,8 +21,6 @@ def load_data():
     with open(file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
     return data
-# データの読み込み（選択されたタイプに基づく）
-data_test = load_data()
 #辞書
 data={'2024': {'Top League': {'Yomiuri Giants': {'モンテス (Coco Montes)': ['https://drive.google.com/uc?id=1y_4aT2CgdyXghxocCUOMrshYy7X2MnPx',
      'https://drive.google.com/uc?id=1aOOgYMBtj7K4-0eaFx9ZpyhbGEawC3qg'],
@@ -6996,6 +6994,8 @@ data={'2024': {'Top League': {'Yomiuri Giants': {'モンテス (Coco Montes)': [
      'https://drive.google.com/uc?id=1y_biPaeLnSDjp48sHqWwUiFKaqCsbIcR'],
     '西川 遥輝 (Haruki Nishikawa)': ['https://drive.google.com/uc?id=1flIsMKfykpZ9yb-X2_-bem-QJ5Vm42fi',
      'https://drive.google.com/uc?id=1KtdWtolFKFVcWlolZsWDBMJuvTTlZYvP']}}}}
+# データの読み込み（選択されたタイプに基づく）
+data = load_data()
 #タイトル
 st.title("NPB Bat Profiler - β ver.")
 st.write("Developed by bouno05")
