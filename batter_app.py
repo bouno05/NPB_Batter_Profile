@@ -68,9 +68,18 @@ if button:
     name_kari=team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )"
     if selected_player==name_kari:
       name_id=i
+      name_j=team_players[i]['nameJ']
       break
     else:
       pass
+  #類似選手の表示
+  cond=simi_df[simi_df["Year"]==selected_year]
+  cond=cond[cond["Player"]==name_j]
+  if len(cond)==1:
+    st.write("類似選手(類似スコア)")
+    st.write(cond.iloc[0,5]+" ( "+cond.iloc[0,6]+" ) ")
+  else:
+    pass
   #プロフィール画像出力
   try:
     urls = team_players[name_id]['ids']
