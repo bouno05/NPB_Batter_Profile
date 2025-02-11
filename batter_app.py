@@ -57,21 +57,30 @@ if selected_year:
               name_list.append(team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )")
             selected_player = st.selectbox("Select or Input a Player", name_list,index = None,
     placeholder="Input a player...")
-simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
+#選択された選手ID、選手和名取得
+for i in range(len(team_players)):
+  name_kari=team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )"
+  if selected_player==name_kari:
+    name_id=i
+    name_j=team_players[i]['nameJ']
+    break
+  else:
+    pass
 #ボタン
 button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
+#類似選手の表示
+simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
+cond=simi_df[simi_df["Year"]==int(selected_year)]
+cond=cond[cond["Player"]==name_j]
+if len(cond)==1:
+  sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "
+  st.text(sim_text)
+else:
+  pass
 #タブ
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
 if button:
-  for i in range(len(team_players)):
-    name_kari=team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )"
-    if selected_player==name_kari:
-      name_id=i
-      name_j=team_players[i]['nameJ']
-      break
-    else:
-      pass
   #プロフィール画像出力
   try:
     urls = team_players[name_id]['ids']
@@ -84,14 +93,6 @@ if button:
     with tab2:
         st.image(image2, use_container_width=True)
   except:
-    pass
-  #類似選手の表示
-  cond=simi_df[simi_df["Year"]==int(selected_year)]
-  cond=cond[cond["Player"]==name_j]
-  if len(cond)==1:
-    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6],0))+" ) "
-    st.text(sim_text)
-  else:
     pass
 #注意事項
 with st.container(height=250):
