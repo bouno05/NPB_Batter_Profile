@@ -55,7 +55,7 @@ if selected_year:
             name_list=[]
             for i in range(len(team_players)):
               name_list.append(team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )")
-            selected_player = st.selectbox("Select or Input a Player", list(name_list),index = None,
+            selected_player = st.selectbox("Select or Input a Player", name_list,index = None,
     placeholder="Input a player...")
 simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
 #ボタン
