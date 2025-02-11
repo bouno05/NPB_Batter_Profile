@@ -39,7 +39,7 @@ if selected_year:
     # 選択したリーグの球団を取得
     if selected_league:
         teams = leagues[selected_league]
-        selected_team = st.selectbox("Select Team", ["ALL Teams"]+list(teams.keys()),index=0)
+        selected_team = st.selectbox("Select Team", list(teams.keys()),index=0)
 
         # 選択した球団の選手名を取得
         if selected_team:
