@@ -4,6 +4,7 @@ import requests
 from io import BytesIO
 import pandas as pd
 import numpy as np
+import json
 
 #デザインCSS
 button_css = f"""
