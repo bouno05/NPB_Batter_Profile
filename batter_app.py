@@ -14,6 +14,15 @@ button_css = f"""
 </style>
 """
 st.markdown(button_css, unsafe_allow_html=True)
+#データ読み込み
+def load_data():
+    file_path = 'bat.json'
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        return data
+# データの読み込み（選択されたタイプに基づく）
+data_test = load_data()
 #辞書
 data={'2024': {'Top League': {'Yomiuri Giants': {'モンテス (Coco Montes)': ['https://drive.google.com/uc?id=1y_4aT2CgdyXghxocCUOMrshYy7X2MnPx',
      'https://drive.google.com/uc?id=1aOOgYMBtj7K4-0eaFx9ZpyhbGEawC3qg'],
