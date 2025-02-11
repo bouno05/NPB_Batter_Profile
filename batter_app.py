@@ -39,15 +39,23 @@ if selected_year:
     # 選択したリーグの球団を取得
     if selected_league:
         teams = leagues[selected_league]
-        selected_team = st.selectbox("Select Team", list(teams.keys()),index=0)
+        selected_team = st.selectbox("Select Team", ["ALL Teams"]+list(teams.keys()),index=0)
 
         # 選択した球団の選手名を取得
         if selected_team:
             if selected_team=="ALL Teams":
-                team_players = teams[selected_team]
+                for i in range(len(list(teams.keys()))):
+                    name=list(teams.keys())[i]
+                    if i==0:
+                        team_players = teams[name]
+                    else:
+                        team_players = team_players + teams[name])
             else:
                 team_players = teams[selected_team]
-            selected_player = st.selectbox("Select or Input a Player", list(team_players.keys()),index = None,
+            name_list=[]
+            for i in range(len(team_players)):
+              name_list.append(team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )")
+            selected_player = st.selectbox("Select or Input a Player", list(name_list.keys()),index = None,
     placeholder="Input a player...")
 simi_df=pd.read_csv("similarity_score.csv",encoding='cp932')
 #ボタン
