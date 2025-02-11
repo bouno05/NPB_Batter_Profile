@@ -17,10 +17,9 @@ st.markdown(button_css, unsafe_allow_html=True)
 #データ読み込み
 def load_data():
     file_path = 'bat.json'
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            data = json.load(file)
-        return data
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
 # データの読み込み（選択されたタイプに基づく）
 data_test = load_data()
 #辞書
