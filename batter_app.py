@@ -49,7 +49,7 @@ if selected_year:
                     if i==0:
                         team_players = teams[name]
                     else:
-                        team_players = team_players + teams[name])
+                        team_players = team_players + teams[name]
             else:
                 team_players = teams[selected_team]
             name_list=[]
