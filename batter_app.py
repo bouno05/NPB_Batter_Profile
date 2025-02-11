@@ -64,9 +64,16 @@ button=st.button(" Generate ! ", icon=":material/stylus_note:",type="primary")
 tab1, tab2 = st.tabs(["Basic Stats", "Pitch Type"])
 #実行
 if button:
+  for i in range(len(team_players)):
+    name_kari=team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )"
+    if selected_player==name_kari:
+      name_id=i
+      break
+    else:
+      pass
   #プロフィール画像出力
   try:
-    urls = team_players[selected_player]
+    urls = team_players[name_id]['ids']
     response = requests.get(urls[0])
     image1 = Image.open(BytesIO(response.content))
     with tab1:
