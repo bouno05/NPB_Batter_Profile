@@ -74,11 +74,11 @@ if button:
   #プロフィール画像出力
   try:
     urls = team_players[name_id]['ids']
-    response = requests.get(urls[0])
+    response = requests.get("https://drive.google.com/uc?id="+urls[0])
     image1 = Image.open(BytesIO(response.content))
     with tab1:
         st.image(image1, use_container_width=True)
-    response = requests.get(urls[1])
+    response = requests.get("https://drive.google.com/uc?id="+urls[1])
     image2 = Image.open(BytesIO(response.content))
     with tab2:
         st.image(image2, use_container_width=True)
