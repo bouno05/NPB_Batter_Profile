@@ -71,7 +71,6 @@ if button:
       break
     else:
       pass
-  print(name_id)
   #プロフィール画像出力
   try:
     urls = team_players[name_id]['ids']
