@@ -76,7 +76,8 @@ if button:
   cond=simi_df[simi_df["Year"]==int(selected_year)]
   cond=cond[cond["Player"]==name_j]
   if len(cond)==1:
-    st.text("類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+cond.iloc[0,6]+" ) ")
+    sim_text="類似選手 ( 類似スコア )："+cond.iloc[0,5]+" ( "+cond.iloc[0,6]+" ) "
+    st.text(sim_text)
   else:
     pass
   #プロフィール画像出力
