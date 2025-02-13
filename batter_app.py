@@ -77,8 +77,8 @@ if selected_player:
     cond=cond[cond["Player"]==name_j]
     if len(cond)==1:
       sim_text="類似選手 ( 年度 )："
-      sim_text=sim_text+"["+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "+"]"+"("+cond.iloc[0,7]+")"+","
-      sim_text=sim_text+"["+cond.iloc[0,8]+" ( "+str(round(cond.iloc[0,9]))+" ) "+"]"+"("+cond.iloc[0,10]+")"+","
+      sim_text=sim_text+"["+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "+"]"+"("+cond.iloc[0,7]+")"+" , "
+      sim_text=sim_text+"["+cond.iloc[0,8]+" ( "+str(round(cond.iloc[0,9]))+" ) "+"]"+"("+cond.iloc[0,10]+")"+" , "
       sim_text=sim_text+"["+cond.iloc[0,11]+" ( "+str(round(cond.iloc[0,12]))+" ) "+"]"+"("+cond.iloc[0,13]+")"
       st.markdown(sim_text)
     else:
