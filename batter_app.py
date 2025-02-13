@@ -107,4 +107,4 @@ with st.container(height=250):
      st.markdown(":gray[・同一選手が複数球団でプレーした場合、成績は所属球団ごとに集計されます。]")
      st.markdown(":gray[・指標に関しての詳細はこちらをご参照ください。]")
      st.page_link("https://bo-no05.hatenadiary.org/entry/2010/01/01/000000_1",label="https://bo-no05.hatenadiary.org/entry/2010/01/01/000000_1")
-     st.markdown(":gray[・類似選手評価は1軍で100打席以上が対象。（2020-2024年の300打席以上の打者と比較し、評価する。）]")
+     st.markdown(":gray[・類似評価は1軍で100打席以上の打者が対象。（2020-2024年の300打席以上の打者と比較し、評価する。）]")
