@@ -57,7 +57,7 @@ if selected_year:
               name_list.append(team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )")
             selected_player = st.selectbox("Select or Input a Player", name_list,index = None,
     placeholder="Input a player...")
-simi_df=pd.read_csv("similarity_score_year.csv",encoding='cp932')
+simi_df=pd.read_csv("similarity_score_year_rev1.csv",encoding='cp932')
 #選択された選手ID、選手和名取得
 if selected_player:
   for i in range(len(team_players)):
@@ -76,8 +76,11 @@ if selected_player:
     cond=simi_df[simi_df["Year"]==int(selected_year)]
     cond=cond[cond["Player"]==name_j]
     if len(cond)==1:
-      sim_text="類似選手 ( 年度 )："+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "+", "+cond.iloc[0,7]+" ( "+str(round(cond.iloc[0,8]))+" ) "+", "+cond.iloc[0,9]+" ( "+str(round(cond.iloc[0,10]))+" ) "
-      st.text(sim_text)
+      sim_text="類似選手 ( 年度 )："
+      sim_text=sim_text+"["+cond.iloc[0,5]+" ( "+str(round(cond.iloc[0,6]))+" ) "+"]"+"("+cond.iloc[0,7]+")"+","
+      sim_text=sim_text+"["+cond.iloc[0,8]+" ( "+str(round(cond.iloc[0,9]))+" ) "+"]"+"("+cond.iloc[0,10]+")"+","
+      sim_text=sim_text+"["+cond.iloc[0,11]+" ( "+str(round(cond.iloc[0,12]))+" ) "+"]"+"("+cond.iloc[0,13]+")"
+      st.markdown(sim_text)
     else:
       st.text("類似選手 ( 年度 )：No Data")
 #ボタン
