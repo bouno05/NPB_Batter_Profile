@@ -28,7 +28,7 @@ data = load_data()
 st.title("NPB Bat Profiler - β ver.")
 st.markdown("Developed by [bouno05](https://x.com/bouno05)")
 st.markdown("【 [NPB Pitch Profiler](https://npbpitchprofile-stjm6eueundydvjbqfxlbv.streamlit.app/) 】")
-st.markdown("※2025年は5/7終了時点のデータ")
+st.markdown("※2025年はシーズン途中のデータ　1軍：5/7終了時点、2軍：7/17終了時点")
 # 年度を選択
 selected_year = st.selectbox("Select Year", list(data.keys()))
 
