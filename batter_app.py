@@ -28,7 +28,7 @@ data = load_data()
 st.title("NPB Bat Profiler - β ver.")
 st.markdown("Developed by [bouno05](https://x.com/bouno05)")
 st.markdown("【 [NPB Pitch Profiler](https://npbpitchprofile-stjm6eueundydvjbqfxlbv.streamlit.app/) 】")
-st.markdown("※2025年はシーズン途中のデータ　1軍：5/7終了時点、2軍：7/17終了時点")
+st.markdown("※2025年はシーズン途中のデータ　1軍：7/21終了時点、2軍：7/17終了時点")
 # 年度を選択
 selected_year = st.selectbox("Select Year", list(data.keys()))
 
@@ -58,7 +58,7 @@ if selected_year:
               name_list.append(team_players[i]['nameJ']+" ( "+team_players[i]['nameE']+" )")
             selected_player = st.selectbox("Select or Input a Player", name_list,index = None,
     placeholder="Input a player...")
-simi_df=pd.read_csv("similarity_score_year_rev1.csv",encoding='cp932')
+simi_df=pd.read_csv("similarity_score_year.csv",encoding='cp932')
 #選択された選手ID、選手和名取得
 if selected_player:
   for i in range(len(team_players)):
