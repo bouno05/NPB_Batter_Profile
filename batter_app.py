@@ -28,7 +28,6 @@ data = load_data()
 st.title("NPB Bat Profiler - β ver.")
 st.markdown("Developed by [bouno05](https://x.com/bouno05)")
 st.markdown("【 [NPB Pitch Profiler](https://npbpitchprofile-stjm6eueundydvjbqfxlbv.streamlit.app/) 】")
-st.markdown("※2025年1軍は9/1終了時点のデータ")
 # 年度を選択
 selected_year = st.selectbox("Select Year", list(data.keys()))
 
@@ -112,5 +111,6 @@ with st.container(height=250):
      st.markdown(":gray[・指標に関しての詳細はこちらをご参照ください。]")
      st.page_link("https://bo-no05.hatenadiary.org/entry/2010/01/01/000000_1",label="https://bo-no05.hatenadiary.org/entry/2010/01/01/000000_1")
      st.markdown(":gray[・類似評価は1軍で100打席以上の打者が対象。（2020-2024年の300打席以上の打者と比較し、評価する。）]")
+
 
 
